@@ -1,6 +1,5 @@
-export interface ApiResponse<T> {
-  status: string; // e.g., 'success', 'error'
+export interface ApiResponse {
+  status: 'success' | 'error';
   message: string;
-  data: T;
-  timestamp: string; // Assuming timestamp is always present
+  data: any;
 }
