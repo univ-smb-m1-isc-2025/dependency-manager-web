@@ -109,18 +109,25 @@ export class AuthService {
   }
 
   logout(): void {
-    const response = this.apiService.post(this.logoutPath, {});
-    response.subscribe((response) => {
-      if (response.status === 'success') {
-        if (isPlatformBrowser(this.platformId)) {
-          this.tokenService.removeToken();
-          localStorage.removeItem('currentUser');
-        }
-        this.currentTokenSubject.next(null);
-        this.currentUserSubject.next(null);
-        this.router.navigate(['/login']);
-      }
-    });
+    // const response = this.apiService.post(this.logoutPath, {});
+    // response.subscribe((response) => {
+    //   if (response.status === 'success') {
+    //     if (isPlatformBrowser(this.platformId)) {
+    //       this.tokenService.removeToken();
+    //       localStorage.removeItem('currentUser');
+    //     }
+    //     this.currentTokenSubject.next(null);
+    //     this.currentUserSubject.next(null);
+    //     this.router.navigate(['/login']);
+    //   }
+    // });
+    if (isPlatformBrowser(this.platformId)) {
+      this.tokenService.removeToken();
+      localStorage.removeItem('currentUser');
+    }
+    this.currentTokenSubject.next(null);
+    this.currentUserSubject.next(null);
+    this.router.navigate(['/login']);
   }
 
   private setSession(token: string, user: Account): void {

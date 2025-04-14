@@ -13,6 +13,9 @@ export class PublicGuard implements CanActivate {
     return this.authService.currentUser$.pipe(
       take(1),
       map((user) => {
+        if (user) {
+          return this.router.createUrlTree(['/']);
+        }
         return true;
       })
     );
