@@ -1,0 +1,28 @@
+<div *ngIf="depot; else loading" class="card mt-6 shadow-sm">
+  <header class="card-header has-background-light">
+    <p class="card-header-title has-text-primary">
+      <span class="icon-text">
+        <span class="icon">
+          <i class="fas fa-box"></i>
+        </span>
+        <span>{{ depot.name }}</span>
+      </span>
+    </p>
+  </header>
+
+  <div class="card-content">
+    <div class="content has-text-grey-dark">
+      <p>
+        <input class="input" type="text" [value]="depot.url" />
+      </p>
+      <p><strong>Username:</strong> {{ depot.username }}</p>
+      <p><strong>Branch:</strong> {{ depot.branch }}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="has-text-centered py-5">
+    <progress class="progress is-small is-primary" max="100">Loading…</progress>
+  </div>
+</ng-template>
