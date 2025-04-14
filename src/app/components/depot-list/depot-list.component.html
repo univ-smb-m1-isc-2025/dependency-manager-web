@@ -1,58 +1,21 @@
-<h2>Depots</h2>
+<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
 
-<div *ngIf="error" class="alert alert-danger">
-  {{ error }}
+<button class="btn btn-primary mt-3" [routerLink]="['/depots/new']">
+  Add New Depot
+</button>
+
+<app-searchbar (search)="onSearch($event)"></app-searchbar>
+
+<div class="p-3 d-flex flex-column gap-3">
+  <ng-container *ngIf="depots$ | async as depots; else loading">
+    <app-depot-preview
+      *ngFor="let depot of depots"
+      [depot]="depot"
+      (click)="onClickDepot(depot)"
+    ></app-depot-preview>
+  </ng-container>
 </div>
-
-<table
-  *ngIf="depots$ | async as depots; else loading"
-  class="table table-striped"
->
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>URL</th>
-      <th>Username</th>
-      <th>Account ID</th>
-      <th>Branch</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let depot of depots">
-      <td>{{ depot.id }}</td>
-      <td>{{ depot.name }}</td>
-      <td>{{ depot.url }}</td>
-      <td>{{ depot.username }}</td>
-      <td>{{ depot.accountId }}</td>
-      <td>{{ depot.branch || "N/A" }}</td>
-      <td>
-        <!-- Placeholder for action buttons -->
-        <button
-          class="btn btn-sm btn-info me-1"
-          [routerLink]="['/depots', depot.id]"
-        >
-          View
-        </button>
-        <button class="btn btn-sm btn-warning me-1">Edit</button>
-        <button class="btn btn-sm btn-danger">Delete</button>
-        <button class="btn btn-sm btn-secondary ms-2">Clone</button>
-        <button class="btn btn-sm btn-secondary ms-1">Pull</button>
-        <!-- Add more buttons for other actions as needed -->
-      </td>
-    </tr>
-    <tr *ngIf="depots.length === 0">
-      <td colspan="7" class="text-center">No depots found.</td>
-    </tr>
-  </tbody>
-</table>
 
 <ng-template #loading>
   <p>Loading depots...</p>
 </ng-template>
-
-<!-- Button to add a new depot -->
-<button class="btn btn-primary mt-3" [routerLink]="['/depots/new']">
-  Add New Depot
-</button>
