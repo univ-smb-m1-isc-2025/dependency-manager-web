@@ -1,12 +1,8 @@
 <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
 
-<button class="btn btn-primary mt-3" [routerLink]="['/depots/new']">
-  Add New Depot
-</button>
-
 <app-searchbar (search)="onSearch($event)"></app-searchbar>
 
-<div class="p-3 d-flex flex-column gap-3">
+<div class="depot-list">
   <ng-container *ngIf="depots$ | async as depots; else loading">
     <app-depot-preview
       *ngFor="let depot of depots"

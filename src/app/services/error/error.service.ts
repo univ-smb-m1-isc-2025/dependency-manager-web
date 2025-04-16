@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NotificationService } from '../notification/notification.service';
+import { AuthService } from '../auth/auth.service';
 import { ApiResponse } from '../../models/api-response.model';
 
 export interface ErrorDetails {
@@ -26,12 +27,24 @@ export class ErrorService {
     UNKNOWN: 'An unexpected error has occurred',
   };
 
-  constructor(private notificationService: NotificationService) {}
+  constructor(
+    private notificationService: NotificationService,
+    private authService: AuthService
+  ) {}
 
   handleError(error: any): ErrorDetails {
     const errorDetails = this.processError(error);
     this.notificationService.showError(errorDetails.message);
     return errorDetails;
+  }
+
+  handleSessionExpired(): void {
+    this.authService.logout();
+    this.notificationService.showError(
+      'Your session has expired. Please log in again.',
+      'Session Expired',
+      60
+    );
   }
 
   private processError(error: any): ErrorDetails {

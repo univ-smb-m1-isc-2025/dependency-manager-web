@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Depot } from '../../models/depot.model';
+import { ApiService } from '../../services/api/api.service';
 
 @Component({
   selector: 'app-depot-preview',
@@ -11,4 +12,15 @@ import { Depot } from '../../models/depot.model';
 })
 export class DepotPreviewComponent {
   @Input() depot: Depot | null = null;
+
+  constructor(private apiService: ApiService) {}
+
+  onClick(): void {
+    console.log(this.depot);
+    if (this.depot) {
+      this.apiService
+        .put(`/depots/${this.depot.id}/dependencies/update`, {})
+        .subscribe();
+    }
+  }
 }

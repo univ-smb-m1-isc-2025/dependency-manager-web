@@ -5,4 +5,6 @@ export interface Depot {
   username: string;
   accountId: number;
   branch?: string | null; // Optional property
+  gitIconUrl?: string | null;
+  lastDependenciesUpdate?: Date | null;
 }

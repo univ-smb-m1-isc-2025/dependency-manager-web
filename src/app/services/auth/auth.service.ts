@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
 import { ApiResponse } from '../../models/api-response.model';
 import { TokenService } from '../token/token.service';
+import { NotificationService } from '../notification/notification.service';
 
 interface RegisterPayload {
   email: string;
@@ -17,6 +18,7 @@ interface RegisterPayload {
   providedIn: 'root',
 })
 export class AuthService {
+  private tokenCheckerInterval: any;
   // Use BehaviorSubject to store and emit authentication state
   private readonly currentUserSubject = new BehaviorSubject<Account | null>(
     null
@@ -38,7 +40,8 @@ export class AuthService {
     private readonly router: Router,
     private readonly http: HttpClient,
     @Inject(PLATFORM_ID) private readonly platformId: Object,
-    private readonly tokenService: TokenService
+    private readonly tokenService: TokenService,
+    private readonly notificationService: NotificationService
   ) {
     // Initialize only in browser environment
     if (isPlatformBrowser(this.platformId)) {
@@ -109,18 +112,6 @@ export class AuthService {
   }
 
   logout(): void {
-    // const response = this.apiService.post(this.logoutPath, {});
-    // response.subscribe((response) => {
-    //   if (response.status === 'success') {
-    //     if (isPlatformBrowser(this.platformId)) {
-    //       this.tokenService.removeToken();
-    //       localStorage.removeItem('currentUser');
-    //     }
-    //     this.currentTokenSubject.next(null);
-    //     this.currentUserSubject.next(null);
-    //     this.router.navigate(['/login']);
-    //   }
-    // });
     if (isPlatformBrowser(this.platformId)) {
       this.tokenService.removeToken();
       localStorage.removeItem('currentUser');

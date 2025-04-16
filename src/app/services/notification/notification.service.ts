@@ -28,7 +28,7 @@ export class NotificationService {
 
   show(notification: Notification): void {
     this.notificationSubject.next(notification);
-
+    notification.duration = (notification.duration || 5) * 1000;
     // Auto-dismiss if duration is specified
     if (notification.duration) {
       setTimeout(() => {
@@ -37,39 +37,39 @@ export class NotificationService {
     }
   }
 
-  showError(message: string, title?: string, duration?: number): void {
+  showError(message: string, title?: string, durationSecond?: number): void {
     this.show({
       type: 'error',
       message,
       title,
-      duration: duration || 5000,
+      duration: durationSecond,
     });
   }
 
-  showSuccess(message: string, title?: string, duration?: number): void {
+  showSuccess(message: string, title?: string, durationSecond?: number): void {
     this.show({
       type: 'success',
       message,
       title,
-      duration: duration || 3000,
+      duration: durationSecond,
     });
   }
 
-  showWarning(message: string, title?: string, duration?: number): void {
+  showWarning(message: string, title?: string, durationSecond?: number): void {
     this.show({
       type: 'warning',
       message,
       title,
-      duration: duration || 4000,
+      duration: durationSecond,
     });
   }
 
-  showInfo(message: string, title?: string, duration?: number): void {
+  showInfo(message: string, title?: string, durationSecond?: number): void {
     this.show({
       type: 'info',
       message,
       title,
-      duration: duration || 3000,
+      duration: durationSecond,
     });
   }
 

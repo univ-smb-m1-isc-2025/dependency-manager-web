@@ -18,6 +18,7 @@ import { SearchbarComponent } from '../searchbar/searchbar.component';
     SearchbarComponent,
   ],
   templateUrl: './depot-list.component.html',
+  styleUrls: ['./depot-list.component.css'],
 })
 export class DepotListComponent implements OnInit {
   depots$: Observable<Depot[]> = new Observable<Depot[]>();

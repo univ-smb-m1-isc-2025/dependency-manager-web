@@ -1,28 +1,27 @@
-<div *ngIf="depot; else loading" class="card mt-6 shadow-sm">
-  <header class="card-header has-background-light">
-    <p class="card-header-title has-text-primary">
-      <span class="icon-text">
-        <span class="icon">
-          <i class="fas fa-box"></i>
-        </span>
-        <span>{{ depot.name }}</span>
-      </span>
+<div *ngIf="depot; else loading" class="custom-card">
+  <header class="custom-card-header">
+    <p class="custom-card-header-title">
+      <img [src]="depot.gitIconUrl" class="icon" alt="Git Icon" />
+      <span>{{ depot.name }}</span>
+      <input class="custom-input" type="text" [value]="depot.url" />
     </p>
   </header>
 
-  <div class="card-content">
-    <div class="content has-text-grey-dark">
-      <p>
-        <input class="input" type="text" [value]="depot.url" />
-      </p>
+  <div class="custom-card-content">
+    <div class="custom-content">
       <p><strong>Username:</strong> {{ depot.username }}</p>
       <p><strong>Branch:</strong> {{ depot.branch }}</p>
+      <p>
+        <strong>Last Update:</strong>
+        {{ depot.lastDependenciesUpdate || "Never updated" }}
+      </p>
     </div>
   </div>
+  <button (click)="onClick()" class="custom-button">Update</button>
 </div>
 
 <ng-template #loading>
-  <div class="has-text-centered py-5">
-    <progress class="progress is-small is-primary" max="100">Loading…</progress>
+  <div class="loading-container">
+    <progress class="custom-progress" max="100">Loading…</progress>
   </div>
 </ng-template>
