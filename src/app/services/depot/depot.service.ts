@@ -30,7 +30,7 @@ export class DepotService {
   deleteDepot(id: number): Observable<ApiResponse> {
     // Still uses GET for now based on backend
     // TODO: Ideally, backend should use DELETE verb. If changed, update to use apiService.delete
-    return this.apiService.get(`${this.depotsPath}/${id}/delete`);
+    return this.apiService.delete(`${this.depotsPath}/${id}/delete`);
   }
 
   updateDepot(id: number, depot: Partial<Depot>): Observable<ApiResponse> {

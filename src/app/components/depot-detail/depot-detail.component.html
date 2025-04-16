@@ -4,6 +4,8 @@
   <p>URL : {{ depot.url }}</p>
   <p>Username : {{ depot.username }}</p>
 </div>
+<button (click)="onClick()" class="custom-button">Update</button>
+<button (click)="deleteRepo()">Delete</button>
 
 <ng-template #loading>
   <p>Chargement...</p>
