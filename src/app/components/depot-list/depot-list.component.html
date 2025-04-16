@@ -1,14 +1,13 @@
 <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
 
+<div id="button-container">
+  <button id="button" (click)="deployFormulaire()">+</button>
+</div>
 <app-searchbar (search)="onSearch($event)"></app-searchbar>
-
+<formulaire-add *ngIf="isAdd"></formulaire-add>
 <div class="depot-list">
   <ng-container *ngIf="depots$ | async as depots; else loading">
-    <app-depot-preview
-      *ngFor="let depot of depots"
-      [depot]="depot"
-      (click)="onClickDepot(depot)"
-    ></app-depot-preview>
+    <app-depot-preview *ngFor="let depot of depots" [depot]="depot" (click)="onClickDepot(depot)"></app-depot-preview>
   </ng-container>
 </div>
 

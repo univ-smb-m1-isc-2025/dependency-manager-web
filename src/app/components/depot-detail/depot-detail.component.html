@@ -1,0 +1,10 @@
+<div *ngIf="depot$ | async as depot; else loading">
+  <h2>Détails du dépôt</h2>
+  <p>Nom : {{ depot.name }}</p>
+  <p>URL : {{ depot.url }}</p>
+  <p>Username : {{ depot.username }}</p>
+</div>
+
+<ng-template #loading>
+  <p>Chargement...</p>
+</ng-template>

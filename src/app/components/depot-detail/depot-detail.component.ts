@@ -21,6 +21,7 @@ export class DepotDetailComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.depotId = this.route.snapshot.params['id'] as number;
+    console.log(this.depotId);
   }
 
   ngOnInit(): void {
@@ -33,6 +34,7 @@ export class DepotDetailComponent implements OnInit {
         if (response.status === 'success') {
           return response.data;
         }
+        console.error('Failed to load depot:', response.message);
         return [];
       }),
       catchError((err) => {
