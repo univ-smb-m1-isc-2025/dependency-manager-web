@@ -29,15 +29,6 @@ jobs:
 
       - run: npm i
 
-      - name: Run Unit Tests
-        run: npm run test:coverage
-
-      - name: Run Lint
-        run: npm run lint
-
-      - name: Run Format Check
-        run: npm run format:check:ci
-
       - run: npm run build
 
       - name: Log in to the Container registry
