@@ -1,0 +1,17 @@
+<div *ngIf="notification" class="notification-container">
+  <div
+    class="alert {{ getAlertClass() }} alert-dismissible fade show"
+    role="alert"
+  >
+    <i class="{{ getIconClass() }} me-2"></i>
+    <strong *ngIf="notification.title">{{ notification.title }}</strong>
+    <span *ngIf="notification.title">: </span>
+    {{ notification.message }}
+    <button
+      type="button"
+      class="btn-close"
+      (click)="dismiss()"
+      aria-label="Close"
+    ></button>
+  </div>
+</div>

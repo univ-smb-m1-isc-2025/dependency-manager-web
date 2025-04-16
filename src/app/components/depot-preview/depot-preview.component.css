@@ -1,0 +1,66 @@
+/* .custom-card */
+.custom-card {
+  margin-top: 2rem; /* mt-6 -> margin-top de 2rem */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* shadow-sm */
+  border-radius: 0.375rem; /* border-radius pour la carte */
+}
+
+/* .custom-card-header */
+.custom-card-header {
+  background-color: #f5f5f5; /* has-background-light */
+  padding: 1rem; /* équivalent à la padding d'une header card */
+  border-top-left-radius: 0.375rem; /* border-radius pour arrondir en haut */
+  border-top-right-radius: 0.375rem;
+}
+
+/* .custom-card-header-title */
+.custom-card-header-title {
+  color: #3273dc; /* has-text-primary */
+  display: flex;
+  align-items: center;
+}
+
+.custom-card-header-title .icon {
+  margin-right: 0.5rem;
+}
+
+/* .custom-card-content */
+.custom-card-content {
+  padding: 1rem; /* padding classique */
+}
+
+/* .custom-content */
+.custom-content {
+  color: #4a4a4a; /* has-text-grey-dark */
+}
+
+.custom-content p {
+  margin-bottom: 0.5rem;
+}
+
+/* .custom-input */
+.custom-input {
+  height: 2rem;
+  border-radius: 0.25rem;
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  color: #3273dc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* .loading-container */
+.loading-container {
+  text-align: center; /* has-text-centered */
+  padding: 2rem 0; /* py-5 */
+}
+
+/* .custom-progress */
+.custom-progress {
+  width: 100%;
+  height: 1rem;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 0.25rem;
+}

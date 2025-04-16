@@ -1,0 +1,27 @@
+<div *ngIf="depot; else loading" class="custom-card">
+  <header class="custom-card-header">
+    <p class="custom-card-header-title">
+      <img [src]="depot.gitIconUrl" class="icon" alt="Git Icon" />
+      <span>{{ depot.name }}</span>
+      <input class="custom-input" type="text" [value]="depot.url" />
+    </p>
+  </header>
+
+  <div class="custom-card-content">
+    <div class="custom-content">
+      <p><strong>Username:</strong> {{ depot.username }}</p>
+      <p><strong>Branch:</strong> {{ depot.branch }}</p>
+      <p>
+        <strong>Last Update:</strong>
+        {{ depot.lastDependenciesUpdate || "Never updated" }}
+      </p>
+    </div>
+  </div>
+  <button (click)="onClick()" class="custom-button">Update</button>
+</div>
+
+<ng-template #loading>
+  <div class="loading-container">
+    <progress class="custom-progress" max="100">Loading…</progress>
+  </div>
+</ng-template>
