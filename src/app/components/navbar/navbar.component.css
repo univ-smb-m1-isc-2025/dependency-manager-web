@@ -10,6 +10,10 @@
   align-items: center;
 }
 
+.navbar-brand:hover {
+  cursor: pointer;
+}
+
 .navbar-item {
   color: #333;
   text-decoration: none;
