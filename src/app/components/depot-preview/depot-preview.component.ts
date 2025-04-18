@@ -16,12 +16,4 @@ export class DepotPreviewComponent {
 
   constructor(private apiService: ApiService) {}
 
-  onClick(): void {
-    console.log(this.depot);
-    if (this.depot) {
-      this.apiService
-        .put(`/depots/${this.depot.id}/dependencies/update`, {})
-        .subscribe();
-    }
-  }
 }

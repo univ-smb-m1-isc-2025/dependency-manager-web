@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-depot-detail',
   templateUrl: './depot-detail.component.html',
+  styleUrl: './depot-detail.component.css',
   standalone: true,
   imports: [CommonModule, RouterModule],
 })
@@ -69,5 +70,9 @@ export class DepotDetailComponent implements OnInit {
         console.error('Erreur HTTP :', err);
       },
     });
+  }
+
+  returnToList(): void {
+    this.router.navigate(['/depots'])
   }
 }

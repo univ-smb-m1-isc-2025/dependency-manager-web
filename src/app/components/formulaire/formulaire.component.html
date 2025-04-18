@@ -3,6 +3,7 @@
 <div class="formulaire-container">
   <div class="formulaire">
     <h2>Formulaire</h2>
+    <button id="button-quit" (click)="onQuit()"><i class='bx bx-x'></i></button>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="name">Nom</label>

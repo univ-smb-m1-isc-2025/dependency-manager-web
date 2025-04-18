@@ -1,11 +1,19 @@
-<div *ngIf="depot$ | async as depot; else loading">
+<button id="button-return" (click)="returnToList()"> &lt; Back</button>
+
+<div id="container" *ngIf="depot$ | async as depot; else loading">
   <h2>Détails du dépôt</h2>
-  <p>Nom : {{ depot.name }}</p>
-  <p>URL : {{ depot.url }}</p>
-  <p>Username : {{ depot.username }}</p>
+  <p><strong>Nom : </strong> {{ depot.name }}</p>
+  <div id="url">
+    <p><strong>URL : </strong> <span>{{ depot.url }}</span></p>
+    <a href="{{ depot.url }}" target="_blank" rel="noopener noreferrer"><img src="{{ depot.gitIconUrl }}"
+        alt="Git Icon" /></a>
+  </div>
+  <p><strong>Username : </strong> {{ depot.username }}</p>
+
+
 </div>
-<button (click)="onClick()" class="custom-button">Update</button>
-<button (click)="deleteRepo()">Delete</button>
+<button class="button-update" (click)="onClick()">Update</button>
+<button class="button-remove" (click)="deleteRepo()">Delete</button>
 
 <ng-template #loading>
   <p>Chargement...</p>

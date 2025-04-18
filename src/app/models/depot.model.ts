@@ -5,7 +5,7 @@ export interface Depot {
   token: string;
   username: string;
   accountId: number;
-  branch?: string | null; // Optional property
+  branch?: string | null;
   gitIconUrl?: string | null;
   lastDependenciesUpdate?: Date | null;
 }

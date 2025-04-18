@@ -1,9 +1,9 @@
 <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
 
-<div id="button-container">
-  <button id="button" (click)="deployFormulaire()">+</button>
+<div id="searchbar-container">
+  <app-searchbar (search)="onSearch($event)"></app-searchbar>
+  <button id="button" (click)="deployFormulaire()"><i class='bx bx-plus'></i></button>
 </div>
-<app-searchbar (search)="onSearch($event)"></app-searchbar>
 <formulaire-add *ngIf="isAdd"></formulaire-add>
 <div class="depot-list">
   <ng-container *ngIf="depots$ | async as depots; else loading">
@@ -12,5 +12,5 @@
 </div>
 
 <ng-template #loading>
-  <p>Loading depots...</p>
+  <p>Loading depots...  </p>
 </ng-template>

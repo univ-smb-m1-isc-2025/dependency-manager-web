@@ -19,6 +19,7 @@
   width: 100%;
   max-width: 500px;
   transition: transform 0.3s ease-in-out;
+  position: relative;
 }
 
 .formulaire h2 {
@@ -69,3 +70,33 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #5a67d8;
 }
+
+#button-quit {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#button-quit:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#button-quit:focus {
+  outline: none;
+  border: 2px solid #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+

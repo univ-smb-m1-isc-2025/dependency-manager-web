@@ -65,13 +65,21 @@ export class formulaireCompoment {
       this.depotService.createDepot(depot).subscribe({
         next: (depot) => {
           console.log('Depot created successfully:', depot);
-          window.location.href = '/depots';
+          this.router.navigate(['/depots']);
         },
         error: (error) => {
           console.error('Error creating depot:', error);
         },
       })
     }
+  }
+
+  onQuit() {
+    this.form.value.name = '';
+    this.form.value.url = '';
+    this.form.value.username = '';
+    this.form.value.token = '';
+    window.location.href = '/depots';
   }
 
   deployFormulaire(): void {}

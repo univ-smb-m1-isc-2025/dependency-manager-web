@@ -4,6 +4,10 @@
   padding: 20px;
 }
 
+#login {
+  text-align: center;
+}
+
 .form-group {
   margin-bottom: 15px;
 }
