@@ -61,7 +61,14 @@ p {
   background-color: #c0392b;
 }
 
+#button-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
 #container {
+  position: relative;
   background: #f4f6f8;
   padding: 20px;
   border-radius: 12px;
@@ -72,4 +79,13 @@ p {
 #url {
   display: flex;
   gap: 10px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

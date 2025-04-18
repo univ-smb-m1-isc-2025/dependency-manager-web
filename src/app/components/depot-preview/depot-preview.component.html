@@ -11,9 +11,8 @@
     <div class="custom-content">
       <p><strong>Username:</strong> {{ depot.username }}</p>
       <p><strong>Branch:</strong> {{ depot.branch }}</p>
-      <p>
-        <strong>Last Update:</strong>
-        {{ depot.lastDependenciesUpdate || "Never updated" }}
+      <p><strong>Dernière mise à jour : </strong>
+        {{ depot.lastDependenciesUpdate ? (depot.lastDependenciesUpdate | date:'medium') : 'Never updated' }}
       </p>
     </div>
   </div>
