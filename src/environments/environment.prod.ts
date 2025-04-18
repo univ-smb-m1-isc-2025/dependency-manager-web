@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://api.dependency-manager.oups.net',
+  apiUrl: 'https://api.dependency-manager.oups.net',
 };

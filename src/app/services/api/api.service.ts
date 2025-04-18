@@ -11,7 +11,8 @@ import { TokenService } from '../token/token.service';
   providedIn: 'root',
 })
 export class ApiService {
-  private readonly baseUrl = environment.apiUrl;
+  private readonly baseUrl =
+    environment.apiUrl || 'https://api.dependency-manager.oups.net';
 
   constructor(
     private readonly http: HttpClient,
