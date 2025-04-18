@@ -47,6 +47,7 @@ export class ApiService {
   }
 
   post(endpoint: string, data: any): Observable<ApiResponse> {
+    console.log(data);
     const headers = this.getHeaders();
     return this.http
       .post<ApiResponse>(`${this.baseUrl}${endpoint}`, data, { headers })

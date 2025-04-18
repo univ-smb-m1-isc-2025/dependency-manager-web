@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { map, catchError, of } from 'rxjs';
 import { DepotPreviewComponent } from '../depot-preview/depot-preview.component';
 import { SearchbarComponent } from '../searchbar/searchbar.component';
+import { formulaireCompoment } from '../formulaire/formulaire.component';
 
 @Component({
   selector: 'app-depot-list',
@@ -16,6 +17,7 @@ import { SearchbarComponent } from '../searchbar/searchbar.component';
     RouterModule,
     DepotPreviewComponent,
     SearchbarComponent,
+    formulaireCompoment
   ],
   templateUrl: './depot-list.component.html',
   styleUrls: ['./depot-list.component.css'],
@@ -23,6 +25,7 @@ import { SearchbarComponent } from '../searchbar/searchbar.component';
 export class DepotListComponent implements OnInit {
   depots$: Observable<Depot[]> = new Observable<Depot[]>();
   error: string | null = null;
+  isAdd: boolean = false;
 
   constructor(private depotService: DepotService, private router: Router) {}
 
@@ -65,5 +68,9 @@ export class DepotListComponent implements OnInit {
         );
       })
     );
+  }
+
+  deployFormulaire(): void {
+    this.isAdd = !this.isAdd;
   }
 }

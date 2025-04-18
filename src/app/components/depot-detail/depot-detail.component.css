@@ -1,0 +1,75 @@
+/* depot-detail.component.css */
+
+h2 {
+  font-size: 30px;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+#button-return {
+  padding: 10px 20px;
+  margin: 10px 0 20px 0;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  background-color: white;
+  color: #3498db;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+#button-return:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+
+.button-update,
+.button-remove {
+  padding: 10px 16px;
+  margin: 10px 10px 0 0;
+  border: none;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-remove {
+  background-color: #e74c3c;
+}
+
+.button-update {
+  background-color: #2980b9;
+}
+
+.button-update:hover {
+  background-color: #2980b9;
+}
+
+.button-remove:hover {
+  background-color: #c0392b;
+}
+
+#container {
+  background: #f4f6f8;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+#url {
+  display: flex;
+  gap: 10px;
+}
