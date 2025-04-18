@@ -60,7 +60,9 @@ export class DepotDetailComponent implements OnInit {
     this.depotService.getDepotDependencies(this.depotId).subscribe({
       next: (response) => {
         if (response.status === 'success') {
-          this.dependencies = response.data.Java || [];
+          // get first key of response.data
+          const firstKey = Object.keys(response.data)[0];
+          this.dependencies = response.data[firstKey] || [];
         }
         this.isLoadingDependencies = false;
       },
