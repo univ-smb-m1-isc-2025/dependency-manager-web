@@ -1,19 +1,51 @@
 <button id="button-return" (click)="returnToList()"> &lt; Back</button>
 
 <div id="container" *ngIf="depot$ | async as depot; else loading">
+  <div id="button-container">
+    <button class="button-update" (click)="onClick()">Update</button>
+    <button class="button-remove" (click)="deleteRepo()">Delete</button>
+  </div>
+
   <h2>Détails du dépôt</h2>
   <p><strong>Nom : </strong> {{ depot.name }}</p>
   <div id="url">
     <p><strong>URL : </strong> <span>{{ depot.url }}</span></p>
-    <a href="{{ depot.url }}" target="_blank" rel="noopener noreferrer"><img src="{{ depot.gitIconUrl }}"
-        alt="Git Icon" /></a>
+    <a href="{{ depot.url }}" target="_blank" rel="noopener noreferrer"><img src="{{ depot.gitIconUrl }}" alt="Git Icon" /></a>
   </div>
   <p><strong>Username : </strong> {{ depot.username }}</p>
+  <p><strong>Dernière mise à jour : </strong>
+    {{ depot.lastDependenciesUpdate ? (depot.lastDependenciesUpdate | date:'medium') : 'Never updated' }}
+  </p>
 
+  <div class="card">
+    <h3>Technologies</h3>
+    <p *ngIf="isLoadingTechnologies">Chargement des technologies...</p>
+    <ul *ngIf="!isLoadingTechnologies">
+      <li *ngFor="let tech of technologies">
+        <strong>{{ tech.name }}</strong>
+        <p>Fichiers :</p>
+        <ul>
+          <li *ngFor="let file of tech.filesNames">{{ file }}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Dépendances</h3>
+    <p *ngIf="isLoadingDependencies">Chargement des dépendances...</p>
+    <ul *ngIf="!isLoadingDependencies">
+      <li *ngFor="let dep of dependencies">
+        <strong>{{ dep.name }}</strong>
+        <ul>
+          <li>Version actuelle : {{ dep.current || 'Non spécifiée' }}</li>
+          <li>Dernière version : {{ dep.latest }}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 
 </div>
-<button class="button-update" (click)="onClick()">Update</button>
-<button class="button-remove" (click)="deleteRepo()">Delete</button>
 
 <ng-template #loading>
   <p>Chargement...</p>
